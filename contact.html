@@ -186,21 +186,20 @@
     </div>
   </footer>
 
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" crossorigin="anonymous"></script>
   <script>
-  AOS.init();
-  feather.replace();
-
-  const navToggle = document.getElementById('menu-toggle');
-  const navMenu = document.getElementById('mobile-menu');
-
-  navToggle?.addEventListener('click', () => {
-    navMenu.classList.toggle('hidden');
-
-    const icon = navToggle.querySelector('i');
-    icon.dataset.feather = navMenu.classList.contains('hidden') ? 'menu' : 'x';
-
+    AOS.init();
     feather.replace();
-  });
-</script>
+
+    const navToggle = document.getElementById('nav-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    navToggle?.addEventListener('click', () => {
+      navMenu.classList.toggle('hidden');
+      const icon = navToggle.querySelector('span');
+      icon.dataset.feather = navMenu.classList.contains('hidden') ? 'menu' : 'x';
+      feather.replace();
+    });
+  </script>
 </body>
 </html>
