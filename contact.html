@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact - Taxi VTC Vienne</title>
+  <meta name="description" content="Contactez Taxi VTC Vienne pour vos réservations et transferts. Téléphone 06 52 30 69 95 ou par email green.transports69@gmail.com. Disponible 24h/24 et 7j/7." />
+
+  <!-- Polices -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Montserrat', 'sans-serif'],
+            poppins: ['Poppins', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- AOS + Feather -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" crossorigin="anonymous">
+  <script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body class="font-sans text-white bg-black">
+
+  <!-- Navigation -->
+<nav class="bg-black text-white shadow-lg sticky top-0 z-50">
+  <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+    <!-- Logo -->
+    <a href="index.html" class="flex items-center space-x-2">
+      <i data-feather="car" class="text-purple-400"></i>
+      <span class="text-xl font-bold font-poppins">Taxi VTC Vienne</span>
+    </a>
+    <!-- Desktop menu -->
+    <ul id="nav-links" class="hidden md:flex md:items-center md:space-x-8 font-semibold">
+      <li><a href="index.html" class="hover:text-purple-400">Accueil</a></li>
+      <li><a href="services.html" class="hover:text-purple-400">Services</a></li>
+      <li><a href="estimation.html" class="hover:text-purple-400">Estimation</a></li>
+      <li><a href="aeroports.html" class="hover:text-purple-400">Aéroports</a></li>
+      <li><a href="contact.html" class="text-purple-400">Contact</a></li>
+    </ul>
+    <!-- Mobile menu button -->
+    <div class="md:hidden">
+      <button id="menu-toggle" class="text-white focus:outline-none">
+        <i data-feather="menu"></i>
+      </button>
+    </div>
+  </div>
+  <!-- Mobile dropdown -->
+  <div id="mobile-menu" class="hidden md:hidden bg-black pb-4 px-4">
+    <a href="index.html" class="block py-2 hover:text-purple-400">Accueil</a>
+    <a href="services.html" class="block py-2 hover:text-purple-400">Services</a>
+    <a href="estimation.html" class="block py-2 hover:text-purple-400">Estimation</a>
+    <a href="aeroports.html" class="block py-2 hover:text-purple-400">Aéroports</a>
+    <a href="contact.html" class="block py-2 hover:text-purple-400">Contact</a>
+  </div>
+</nav>
+
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-b from-purple-800 to-black text-center min-h-[40vh] flex items-center justify-center">
+    <div class="container mx-auto px-4">
+      <h1 class="text-4xl md:text-6xl font-poppins font-bold mb-6" data-aos="fade-up">
+        Contactez-nous
+      </h1>
+      <p class="text-lg md:text-2xl max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+        Réservez votre chauffeur VTC dès aujourd’hui. Disponible 24h/24 et 7j/7.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="py-16 bg-gradient-to-b from-black to-gray-900">
+    <div class="container mx-auto px-4 grid md:grid-cols-2 gap-12">
+      <!-- Infos Contact -->
+      <div data-aos="fade-right">
+        <h2 class="text-3xl font-poppins font-bold mb-6">Nos coordonnées</h2>
+        <p class="text-gray-300 mb-6">Nous sommes disponibles jour et nuit pour vos trajets, transferts aéroports et déplacements privés.</p>
+        <ul class="space-y-4 text-gray-300">
+          <li class="flex items-center">
+            <span data-feather="phone" class="text-purple-400 mr-3"></span>
+            <a href="tel:0652306995" class="hover:text-purple-400">06 52 30 69 95</a>
+          </li>
+          <li class="flex items-center">
+            <span data-feather="mail" class="text-purple-400 mr-3"></span>
+            <a href="mailto:green.transports69@gmail.com" class="hover:text-purple-400">green.transports69@gmail.com</a>
+          </li>
+          <li class="flex items-center">
+            <span data-feather="map-pin" class="text-purple-400 mr-3"></span>
+            Vienne, France
+          </li>
+        </ul>
+      </div>
+
+      <!-- Formulaire -->
+      <div data-aos="fade-left">
+        <h2 class="text-3xl font-poppins font-bold mb-6">Formulaire de contact</h2>
+        <form action="https://formsubmit.co/green.transports69@gmail.com" method="POST" class="space-y-6 bg-gray-800 bg-opacity-50 p-6 rounded-lg shadow-lg">
+  <!-- Options cachées -->
+  <form action="https://formsubmit.co/green.transports69@gmail.com" method="POST" class="space-y-6 bg-gray-800 bg-opacity-50 p-6 rounded-lg shadow-lg">
+  <!-- Options cachées -->
+  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="_next" value="merci.html">
+
+  <!-- Nom -->
+  <div>
+    <label for="name" class="block text-gray-300 mb-2">Nom</label>
+    <input type="text" id="name" name="name"
+      class="w-full px-4 py-3 rounded-lg bg-black border border-gray-600 text-white focus:outline-none focus:border-purple-500"
+      required>
+  </div>
+
+  <!-- Email -->
+  <div>
+    <label for="email" class="block text-gray-300 mb-2">Email</label>
+    <input type="email" id="email" name="email"
+      class="w-full px-4 py-3 rounded-lg bg-black border border-gray-600 text-white focus:outline-none focus:border-purple-500"
+      required>
+  </div>
+
+  <!-- Message -->
+  <div>
+    <label for="message" class="block text-gray-300 mb-2">Message</label>
+    <textarea id="message" name="message" rows="5"
+      class="w-full px-4 py-3 rounded-lg bg-black border border-gray-600 text-white focus:outline-none focus:border-purple-500"
+      required></textarea>
+  </div>
+
+  <!-- Bouton -->
+  <button type="submit"
+    class="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300">
+    Envoyer
+  </button>
+</form>
+
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  
+   <footer id="contact" class="bg-black py-12 text-gray-400">
+    <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div>
+        <h3 class="text-white font-poppins font-bold mb-4">Contact</h3>
+        <p class="flex items-center mb-2"><i data-feather="phone" class="mr-2"></i> 06 52 30 69 95</p>
+        <p class="flex items-center mb-2"><i data-feather="mail" class="mr-2"></i> contact@vtcvienne.com</p>
+        <p class="flex items-center"><i data-feather="map-pin" class="mr-2"></i> Vienne, France</p>
+      </div>
+      <div>
+        <h3 class="text-white font-poppins font-bold mb-4">Liens rapides</h3>
+        <ul>
+          <li class="mb-2"><a href="index.html">Accueil</a></li>
+          <li class="mb-2"><a href="services.html">Services</a></li>
+          <li class="mb-2"><a href="estimation.html">Estimation</a></li>
+          <li class="mb-2"><a href="aeroports.html">Aéroports</a></li>
+          <li class="mb-2"><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-white font-poppins font-bold mb-4">Zones desservies</h3>
+        <p>Vienne &amp; communes voisines, Lyon et agglomération, Grenoble, Valence, Genève,<br/>et toute la région Auvergne-Rhône-Alpes.</p>
+      </div>
+      <div>
+        <h3 class="text-white font-poppins font-bold mb-4">Réservez avec WhatsApp</h3>
+        <p class="flex space-x-4">
+          <a href="https://wa.me/33652306995" target="_blank" class="flex items-center space-x-2 hover:text-green-400">
+            <i data-feather="message-circle"></i>
+            <span>WhatsApp</span>
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="text-center text-gray-500 mt-8 text-sm">
+      &copy; 2025 Taxi VTC Vienne. Tous droits réservés.
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" crossorigin="anonymous"></script>
+  <script>
+    AOS.init();
+    feather.replace();
+
+    const navToggle = document.getElementById('nav-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    navToggle?.addEventListener('click', () => {
+      navMenu.classList.toggle('hidden');
+      const icon = navToggle.querySelector('span');
+      icon.dataset.feather = navMenu.classList.contains('hidden') ? 'menu' : 'x';
+      feather.replace();
+    });
+  </script>
+</body>
+</html>

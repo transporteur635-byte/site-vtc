@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Taxi VTC Vienne - Accueil</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script>
+    tailwind = { config: {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Montserrat', 'sans-serif'],
+            poppins: ['Poppins', 'sans-serif']
+          }
+        }
+      }
+    }};
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- AOS & Feather Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" crossorigin="anonymous">
+  <script src="https://unpkg.com/feather-icons"></script>
+</head>
+
+<body class="font-sans text-white bg-black">
+
+  <!-- Navigation -->
+  <nav class="bg-black text-white shadow-lg sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <a href="index.html" class="flex items-center space-x-2">
+        <i data-feather="car" class="text-purple-400"></i>
+        <span class="text-xl font-bold font-poppins">Taxi VTC Vienne</span>
+      </a>
+
+      <ul class="hidden md:flex md:items-center md:space-x-8 font-semibold">
+        <li><a href="index.html" class="text-purple-400">Accueil</a></li>
+        <li><a href="services.html" class="hover:text-purple-400">Services</a></li>
+        <li><a href="estimation.html" class="hover:text-purple-400">Estimation</a></li>
+        <li><a href="aeroports.html" class="hover:text-purple-400">Aéroports</a></li>
+        <li><a href="contact.html" class="hover:text-purple-400">Contact</a></li>
+      </ul>
+
+      <div class="md:hidden">
+        <button id="menu-toggle" class="text-white focus:outline-none">
+          <i data-feather="menu"></i>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobile-menu" class="hidden md:hidden bg-black pb-4 px-4">
+      <a href="index.html" class="block py-2 hover:text-purple-400">Accueil</a>
+      <a href="services.html" class="block py-2 hover:text-purple-400">Services</a>
+      <a href="estimation.html" class="block py-2 hover:text-purple-400">Estimation</a>
+      <a href="aeroports.html" class="block py-2 hover:text-purple-400">Aéroports</a>
+      <a href="contact.html" class="block py-2 hover:text-purple-400">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section id="accueil" class="relative min-h-screen flex items-center justify-center text-center">
+    <img src="image/hero.jpg" alt="Chauffeur VTC Vienne" class="absolute inset-0 w-full h-full object-cover">
+    <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-purple-900/70"></div>
+
+    <div class="relative z-10 container mx-auto px-4">
+      <h1 class="text-4xl md:text-6xl font-poppins font-bold mb-6" data-aos="fade-up">
+        Votre Chauffeur Privé à Vienne et sa région
+      </h1>
+      <p class="text-lg md:text-2xl mb-12 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+        Déplacez-vous avec élégance et ponctualité.<br class="md:hidden">
+        Transferts aéroports (Lyon, Grenoble, Genève), trajets professionnels et événements spéciaux.
+      </p>
+      <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-6" data-aos="fade-up" data-aos-delay="200">
+        <a href="estimation.html" class="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-4 px-8 rounded-full text-lg">Estimer mon trajet</a>
+        <a href="tel:0652306995" class="border border-white text-white font-semibold py-4 px-8 rounded-full flex items-center justify-center hover:bg-white hover:text-black text-lg">
+          <i data-feather="phone" class="mr-2"></i> 06 52 30 69 95
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="py-16 bg-gradient-to-b from-black to-gray-900">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-poppins font-bold text-center mb-12" data-aos="fade-up">Nos Services Premium</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-gray-800 bg-opacity-50 p-6 rounded-lg text-center" data-aos="fade-up">
+          <i data-feather="map-pin" class="w-12 h-12 mx-auto mb-4"></i>
+          <h3 class="text-xl font-semibold mb-2">Transferts aéroports</h3>
+          <p>Transferts vers les aéroports de Lyon, Grenoble et Genève avec suivi de vol et accueil personnalisé.</p>
+        </div>
+        <div class="bg-gray-800 bg-opacity-50 p-6 rounded-lg text-center" data-aos="fade-up" data-aos-delay="100">
+          <i data-feather="briefcase" class="w-12 h-12 mx-auto mb-4"></i>
+          <h3 class="text-xl font-semibold mb-2">Déplacements professionnels</h3>
+          <p>Trajets d'affaires ponctuels, confortables et discrets pour tous vos rendez-vous professionnels.</p>
+        </div>
+        <div class="bg-gray-800 bg-opacity-50 p-6 rounded-lg text-center" data-aos="fade-up" data-aos-delay="200">
+          <i data-feather="calendar" class="w-12 h-12 mx-auto mb-4"></i>
+          <h3 class="text-xl font-semibold mb-2">Événements spéciaux</h3>
+          <p>Voiture avec chauffeur pour mariages, soirées, et tout événement spécial nécessitant un service haut de gamme.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Aéroports -->
+  <section id="aeroports" class="py-16 bg-gradient-to-b from-gray-900 to-black">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-poppins font-bold text-center mb-10" data-aos="fade-up">Transferts Aéroports</h2>
+      <div class="md:flex md:items-center md:space-x-8">
+        <ul class="text-gray-300 md:w-1/2 space-y-4 mb-8 md:mb-0" data-aos="fade-up">
+          <li>Accueil personnalisé à l'aéroport avec pancarte</li>
+          <li>Suivi des vols en temps réel</li>
+          <li>Attente sans frais en cas de retard d'avion</li>
+          <li>Aide pour vos bagages</li>
+          <li>Transfert confortable porte-à-porte</li>
+        </ul>
+        <div class="md:w-1/2" data-aos="fade-up" data-aos-delay="100">
+          <div class="bg-gray-800/50 rounded-xl p-6 shadow">
+            <img src="image/avion2.jpg" alt="Transferts Aéroports"
+                 class="w-full h-[300px] md:h-[350px] object-cover rounded-lg shadow-md" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Véhicules -->
+  <section id="vehicules" class="py-16 bg-gradient-to-b from-black to-purple-900">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-poppins font-bold text-center mb-12" data-aos="fade-up">Nos Véhicules</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+
+        <!-- Berline -->
+        <div class="bg-gray-800 bg-opacity-50 rounded-lg overflow-hidden" data-aos="fade-up">
+          <div class="bg-gray-800/50 rounded-xl p-6 shadow">
+            <img src="image/tesla.jpg"
+                 alt="Berline - 3 passagers, 2 bagages"
+                 class="w-full h-[300px] md:h-[350px] object-cover rounded-lg">
+          </div>
+          <div class="p-6">
+            <h3 class="text-2xl font-semibold mb-2">Berline Premium</h3>
+            <p class="mb-4">Confort et élégance pour 3 passagers avec bagages.</p>
+            <div class="text-sm text-gray-300 flex items-center">
+              <i data-feather="users" class="mr-2"></i> 3 passagers
+              <i data-feather="briefcase" class="ml-6 mr-2"></i> 2 bagages
+            </div>
+          </div>
+        </div>
+
+        <!-- Van -->
+        <div class="bg-gray-800 bg-opacity-50 rounded-lg overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+          <div class="bg-gray-800/50 rounded-xl p-6 shadow">
+            <img src="image/van.jpg"
+                 alt="Van - 7 passagers, 5 bagages"
+                 class="w-full h-[300px] md:h-[350px] object-cover rounded-lg">
+          </div>
+          <div class="p-6">
+            <h3 class="text-2xl font-semibold mb-2">Van 7 places</h3>
+            <p class="mb-4">Espace maximal pour les groupes jusqu'à 7 personnes.</p>
+            <div class="text-sm text-gray-300 flex items-center">
+              <i data-feather="users" class="mr-2"></i> 7 passagers
+              <i data-feather="briefcase" class="ml-6 mr-2"></i> 5 bagages
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Témoignages -->
+  <section id="temoignages" class="py-16 bg-gradient-to-b from-purple-900 to-black">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-poppins font-bold text-center mb-12" data-aos="fade-up">
+        Ce que nos clients en pensent
+      </h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-gray-800 bg-opacity-50 p-6 rounded-lg text-center" data-aos="fade-up">
+          <div class="text-yellow-400 mb-2 flex justify-center space-x-1">
+            <i data-feather="star"></i><i data-feather="star"></i><i data-feather="star"></i><i data-feather="star"></i><i data-feather="star"></i>
+          </div>
+          <p class="text-gray-200 italic">"Service impeccable et chauffeur très professionnel. Je recommande !"</p>
+          <p class="mt-3 font-semibold">- Alice D.</p>
+        </div>
+        <div class="bg-gray-800 bg-opacity-50 p-6 rounded-lg text-center" data-aos="fade-up" data-aos-delay="100">
+          <div class="text-yellow-400 mb-2 flex justify-center space-x-1">
+            <i data-feather="star"></i><i data-feather="star"></i><i data-feather="star"></i><i data-feather="star"></i><i data-feather="star"></i>
+          </div>
+          <p class="text-gray-200 italic">"Ponctualité, confort et courtoisie, tout était parfait du début à la fin."</p>
+          <p class="mt-3 font-semibold">- Jean M.</p>
+        </div>
+        <div class="bg-gray-800 bg-opacity-50 p-6 rounded-lg text-center" data-aos="fade-up" data-aos-delay="200">
+          <div class="text-yellow-400 mb-2 flex justify-center space-x-1">
+            <i data-feather="star"></i><i data-feather="star"></i><i data-feather="star"></i><i data-feather="star"></i><i data-feather="star"></i>
+          </div>
+          <p class="text-gray-200 italic">"Voiture propre, conduite agréable et chauffeur aux petits soins. 5 étoiles !"</p>
+          <p class="mt-3 font-semibold">- Thomas B.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section id="estimation" class="py-16 bg-gradient-to-b from-purple-800 to-black text-center">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-poppins font-bold mb-6" data-aos="fade-up">Prêt à partir&nbsp;?</h2>
+      <p class="text-lg mb-8" data-aos="fade-up" data-aos-delay="100">
+        Obtenez dès maintenant une estimation de tarif ou contactez-nous pour réserver votre trajet.
+      </p>
+      <div data-aos="fade-up" data-aos-delay="200">
+        <a href="estimation.html" class="bg-black hover:bg-gray-800 text-white font-semibold py-3 px-6 rounded-full mr-0 md:mr-4 mb-4 md:mb-0 inline-block">Estimer mon trajet</a>
+        <a href="contact.html" class="bg-black hover:bg-gray-800 text-white font-semibold py-3 px-6 rounded-full inline-block">Nous contacter</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contact" class="bg-black py-12 text-gray-400">
+    <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div>
+        <h3 class="text-white font-poppins font-bold mb-4">Contact</h3>
+        <p class="flex items-center mb-2"><i data-feather="phone" class="mr-2"></i> 06 52 30 69 95</p>
+        <p class="flex items-center mb-2"><i data-feather="mail" class="mr-2"></i> contact@vtcvienne.com</p>
+        <p class="flex items-center"><i data-feather="map-pin" class="mr-2"></i> Vienne, France</p>
+      </div>
+      <div>
+        <h3 class="text-white font-poppins font-bold mb-4">Liens rapides</h3>
+        <ul>
+          <li class="mb-2"><a href="index.html">Accueil</a></li>
+          <li class="mb-2"><a href="services.html">Services</a></li>
+          <li class="mb-2"><a href="estimation.html">Estimation</a></li>
+          <li class="mb-2"><a href="aeroports.html">Aéroports</a></li>
+          <li class="mb-2"><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-white font-poppins font-bold mb-4">Zones desservies</h3>
+        <p>Vienne &amp; communes voisines, Lyon et agglomération, Grenoble, Valence, Genève,<br/>et toute la région Auvergne-Rhône-Alpes.</p>
+      </div>
+      <div>
+        <h3 class="text-white font-poppins font-bold mb-4">Réservez avec WhatsApp</h3>
+        <p class="flex space-x-4">
+          <a href="https://wa.me/33652306995" target="_blank" class="flex items-center space-x-2 hover:text-green-400">
+            <i data-feather="message-circle"></i>
+            <span>WhatsApp</span>
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="text-center text-gray-500 mt-8 text-sm">
+      &copy; 2025 Taxi VTC Vienne. Tous droits réservés.
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" crossorigin="anonymous"></script>
+  <script>
+    AOS.init();
+    feather.replace();
+
+    // Toggle menu mobile
+    const navToggle = document.getElementById('menu-toggle');
+    const navMenu = document.getElementById('mobile-menu');
+    navToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('hidden');
+      const icon = navToggle.querySelector('i');
+      icon.dataset.feather = navMenu.classList.contains('hidden') ? 'menu' : 'x';
+      feather.replace();
+    });
+  </script>
+</body>
+</html>

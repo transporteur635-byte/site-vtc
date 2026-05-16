@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Taxi VTC Vienne - Estimation</title>
+
+  <!-- Polices -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind -->
+  <script>
+    tailwind = { config: {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Montserrat', 'sans-serif'],
+            poppins: ['Poppins', 'sans-serif']
+          }
+        }
+      }
+    }};
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- AOS + Feather -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" crossorigin="anonymous">
+  <script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body class="font-sans text-white bg-black">
+
+ <!-- Navigation -->
+<nav class="bg-black text-white shadow-lg sticky top-0 z-50">
+  <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+    <!-- Logo -->
+    <a href="index.html" class="flex items-center space-x-2">
+      <i data-feather="car" class="text-purple-400"></i>
+      <span class="text-xl font-bold font-poppins">Taxi VTC Vienne</span>
+    </a>
+    <!-- Desktop menu -->
+    <ul class="hidden md:flex md:items-center md:space-x-8 font-semibold">
+      <li><a href="index.html" class="hover:text-purple-400">Accueil</a></li>
+      <li><a href="services.html" class="hover:text-purple-400">Services</a></li>
+      <li><a href="estimation.html" class="text-purple-400">Estimation</a></li>
+      <li><a href="aeroports.html" class="hover:text-purple-400">Aéroports</a></li>
+      <li><a href="contact.html" class="hover:text-purple-400">Contact</a></li>
+    </ul>
+    <!-- Mobile menu button -->
+    <div class="md:hidden">
+      <button id="menu-toggle" class="text-white focus:outline-none">
+        <i data-feather="menu"></i>
+      </button>
+    </div>
+  </div>
+  <!-- Mobile dropdown -->
+  <div id="mobile-menu" class="hidden md:hidden bg-black pb-4 px-4">
+    <a href="index.html" class="block py-2 hover:text-purple-400">Accueil</a>
+    <a href="services.html" class="block py-2 hover:text-purple-400">Services</a>
+    <a href="estimation.html" class="block py-2 hover:text-purple-400">Estimation</a>
+    <a href="aeroports.html" class="block py-2 hover:text-purple-400">Aéroports</a>
+    <a href="contact.html" class="block py-2 hover:text-purple-400">Contact</a>
+  </div>
+</nav>
+
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-b from-purple-800 to-black text-center min-h-[60vh] flex items-center justify-center">
+    <div class="container mx-auto px-4">
+      <h1 class="text-4xl md:text-6xl font-poppins font-bold mb-6" data-aos="fade-up">
+        Estimation de votre trajet
+      </h1>
+      <p class="text-lg md:text-2xl max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+        Calculez instantanément la distance et le tarif estimé pour vos trajets en berline ou en van.
+      </p>
+    </div>
+  </section>
+
+  <!-- Formulaire -->
+  <section class="py-16 bg-gradient-to-b from-black to-gray-900">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto bg-gray-800/50 rounded-xl shadow-lg p-8">
+        <form id="estimation-form" data-aos="fade-up" class="space-y-6">
+          <div>
+            <label for="departure" class="block font-semibold mb-2">Lieu de départ</label>
+            <input type="text" id="departure" class="w-full p-3 rounded-lg text-black" placeholder="Adresse, ville ou aéroport" required>
+          </div>
+          <div>
+            <label for="destination" class="block font-semibold mb-2">Destination</label>
+            <input type="text" id="destination" class="w-full p-3 rounded-lg text-black" placeholder="Adresse, ville ou aéroport" required>
+          </div>
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <label for="date" class="block font-semibold mb-2">Date</label>
+              <input type="date" id="date" class="w-full p-3 rounded-lg text-black" required>
+            </div>
+            <div>
+              <label for="time" class="block font-semibold mb-2">Heure</label>
+              <input type="time" id="time" class="w-full p-3 rounded-lg text-black" required>
+            </div>
+          </div>
+          <button id="estimate-btn" type="submit" class="w-full bg-purple-600 hover:bg-purple-700 py-4 rounded-lg font-bold text-white">
+            Estimer mon trajet
+          </button>
+          <p id="form-error" class="text-red-400 text-sm mt-2 hidden"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Résultats -->
+  <section id="result-section" class="py-16 bg-gradient-to-b from-gray-900 to-black hidden">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto bg-gray-800/50 rounded-xl shadow-lg p-8" data-aos="fade-up">
+        <h2 class="text-2xl font-poppins font-bold mb-6">Résultat de l’estimation</h2>
+        <p class="mb-2">Trajet : <span id="route-label" class="text-gray-300"></span></p>
+        <p class="mb-4">Distance estimée : <span id="distance-result">0 km</span> — Durée estimée : <span id="duration-result">0 min</span></p>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="bg-black/50 p-6 rounded-lg">
+            <h3 class="text-xl font-semibold mb-2">Berline</h3>
+            <p>Prix estimé : <span id="price-berline" class="font-bold text-purple-400">0 €</span></p>
+          </div>
+          <div class="bg-black/50 p-6 rounded-lg">
+            <h3 class="text-xl font-semibold mb-2">Van</h3>
+            <p>Prix estimé : <span id="price-van" class="font-bold text-purple-400">0 €</span></p>
+          </div>
+        </div>
+        <p class="text-xs text-gray-400 mt-4">Estimation indicative basée sur la distance routière. Le tarif final peut varier (trafic, détour, attente, péages, options).</p>
+        <div class="mt-8 flex flex-wrap gap-4">
+          <a href="contact.html" class="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 rounded-full">Réserver en ligne</a>
+          <a href="tel:0652306995" class="border border-white text-white font-semibold py-3 px-6 rounded-full hover:bg-white hover:text-black">Appeler pour réserver</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-16 bg-gradient-to-b from-black to-purple-900">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-poppins font-bold text-center mb-12" data-aos="fade-up">Questions fréquentes</h2>
+      <div class="max-w-3xl mx-auto space-y-6">
+        <div class="bg-gray-800/50 rounded-lg p-6" data-aos="fade-up">
+          <h3 class="font-semibold mb-2">Comment est calculé le tarif ?</h3>
+          <p class="text-gray-300">Un tarif de base + prix au kilomètre. Exemple : 5 € + 1,50 €/km pour Berline, 2,00 €/km pour Van.</p>
+        </div>
+        <div class="bg-gray-800/50 rounded-lg p-6" data-aos="fade-up" data-aos-delay="100">
+          <h3 class="font-semibold mb-2">L’estimation est-elle garantie ?</h3>
+          <p class="text-gray-300">Elle est indicative. Le prix final peut varier selon trafic, itinéraire ou suppléments.</p>
+        </div>
+        <div class="bg-gray-800/50 rounded-lg p-6" data-aos="fade-up" data-aos-delay="200">
+          <h3 class="font-semibold mb-2">Puis-je réserver directement ?</h3>
+          <p class="text-gray-300">Oui, vous pouvez réserver en ligne via notre formulaire ou par téléphone.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="py-16 bg-gradient-to-b from-purple-800 to-black text-center">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-poppins font-bold mb-6" data-aos="fade-up">Prêt à réserver votre trajet&nbsp;?</h2>
+      <div data-aos="fade-up" data-aos-delay="200">
+        <a href="contact.html" class="bg-black hover:bg-gray-800 text-white font-semibold py-3 px-6 rounded-full mr-0 md:mr-4 mb-4 md:mb-0 inline-block">Nous contacter</a>
+        <a href="tel:0652306995" class="bg-black hover:bg-gray-800 text-white font-semibold py-3 px-6 rounded-full inline-block">Appeler maintenant</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+   <footer id="contact" class="bg-black py-12 text-gray-400">
+    <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div>
+        <h3 class="text-white font-poppins font-bold mb-4">Contact</h3>
+        <p class="flex items-center mb-2"><i data-feather="phone" class="mr-2"></i> 06 52 30 69 95</p>
+        <p class="flex items-center mb-2"><i data-feather="mail" class="mr-2"></i> contact@vtcvienne.com</p>
+        <p class="flex items-center"><i data-feather="map-pin" class="mr-2"></i> Vienne, France</p>
+      </div>
+      <div>
+        <h3 class="text-white font-poppins font-bold mb-4">Liens rapides</h3>
+        <ul>
+          <li class="mb-2"><a href="index.html">Accueil</a></li>
+          <li class="mb-2"><a href="services.html">Services</a></li>
+          <li class="mb-2"><a href="estimation.html">Estimation</a></li>
+          <li class="mb-2"><a href="aeroports.html">Aéroports</a></li>
+          <li class="mb-2"><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-white font-poppins font-bold mb-4">Zones desservies</h3>
+        <p>Vienne &amp; communes voisines, Lyon et agglomération, Grenoble, Valence, Genève,<br/>et toute la région Auvergne-Rhône-Alpes.</p>
+      </div>
+      <div>
+        <h3 class="text-white font-poppins font-bold mb-4">Réservez avec WhatsApp</h3>
+        <p class="flex space-x-4">
+          <a href="https://wa.me/33652306995" target="_blank" class="flex items-center space-x-2 hover:text-green-400">
+            <i data-feather="message-circle"></i>
+            <span>WhatsApp</span>
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="text-center text-gray-500 mt-8 text-sm">
+      &copy; 2025 Taxi VTC Vienne. Tous droits réservés.
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" crossorigin="anonymous"></script>
+  <script>
+    AOS.init();
+    feather.replace();
+
+    /* === Menu mobile (IDs corrects) === */
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      const icon = menuToggle.querySelector('i');
+      icon.dataset.feather = mobileMenu.classList.contains('hidden') ? 'menu' : 'x';
+      feather.replace();
+    });
+
+    /* === Estimation : géocodage & itinéraire (OpenStreetMap) ===
+       - Géocodage: Nominatim
+       - Itinéraire: OSRM
+       Aucun compte nécessaire. Usage raisonnable conseillé. */
+
+    const BASE_EUR = 5;            // tarif de base
+    const PER_KM_BERLINE = 1.5;    // €/km
+    const PER_KM_VAN = 2.0;        // €/km
+
+    async function geocode(query) {
+      const url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}&limit=1&addressdetails=1`;
+      const res = await fetch(url, { headers: { 'Accept': 'application/json' }});
+      if (!res.ok) throw new Error('Geocoding failed');
+      const data = await res.json();
+      if (!data || !data.length) return null;
+      const { lat, lon, display_name } = data[0];
+      return { lat: parseFloat(lat), lon: parseFloat(lon), label: display_name };
+    }
+
+    function haversineKm(a, b) {
+      const R = 6371;
+      const dLat = (b.lat - a.lat) * Math.PI / 180;
+      const dLon = (b.lon - a.lon) * Math.PI / 180;
+      const lat1 = a.lat * Math.PI / 180;
+      const lat2 = b.lat * Math.PI / 180;
+      const sinDLat = Math.sin(dLat/2);
+      const sinDLon = Math.sin(dLon/2);
+      const h = sinDLat*sinDLat + Math.cos(lat1)*Math.cos(lat2)*sinDLon*sinDLon;
+      return 2 * R * Math.asin(Math.sqrt(h));
+    }
+
+    async function routeInfo(from, to) {
+      const url = `https://router.project-osrm.org/route/v1/driving/${from.lon},${from.lat};${to.lon},${to.lat}?overview=false&alternatives=false&steps=false`;
+      const res = await fetch(url, { headers: { 'Accept': 'application/json' }});
+      if (res.ok) {
+        const data = await res.json();
+        const route = data && data.routes && data.routes[0];
+        if (route) {
+          const km = route.distance / 1000;                 // mètres -> km
+          const durationMin = Math.round(route.duration / 60);
+          return { km, durationMin, method: 'osrm' };
+        }
+      }
+      // Fallback simple (distance à vol d’oiseau * 1.25), durée 55 km/h moyen
+      const kmLine = haversineKm(from, to) * 1.25;
+      const durationMin = Math.round((kmLine / 55) * 60);
+      return { km: kmLine, durationMin, method: 'fallback' };
+    }
+
+    function formatKm(km) {
+      return km.toFixed(1).replace('.', ',') + ' km';
+    }
+
+    function formatMin(min) {
+      if (min < 60) return `${min} min`;
+      const h = Math.floor(min / 60);
+      const m = min % 60;
+      return m ? `${h} h ${m} min` : `${h} h`;
+    }
+
+    const form = document.getElementById('estimation-form');
+    const btn = document.getElementById('estimate-btn');
+    const errorEl = document.getElementById('form-error');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      errorEl.classList.add('hidden');
+      errorEl.textContent = '';
+
+      const depQ = document.getElementById('departure').value.trim();
+      const destQ = document.getElementById('destination').value.trim();
+
+      if (!depQ || !destQ) {
+        errorEl.textContent = 'Merci de renseigner un départ et une destination.';
+        errorEl.classList.remove('hidden');
+        return;
+      }
+      if (depQ.toLowerCase() === destQ.toLowerCase()) {
+        errorEl.textContent = 'Le départ et la destination sont identiques.';
+        errorEl.classList.remove('hidden');
+        return;
+      }
+
+      btn.disabled = true;
+      const prevLabel = btn.textContent;
+      btn.textContent = 'Calcul en cours…';
+
+      try {
+        const [from, to] = await Promise.all([geocode(depQ), geocode(destQ)]);
+        if (!from) throw new Error('Adresse de départ introuvable');
+        if (!to) throw new Error('Adresse de destination introuvable');
+
+        const { km, durationMin } = await routeInfo(from, to);
+
+        const priceBerline = BASE_EUR + km * PER_KM_BERLINE;
+        const priceVan = BASE_EUR + km * PER_KM_VAN;
+
+        document.getElementById('route-label').textContent = `${from.label} → ${to.label}`;
+        document.getElementById('distance-result').textContent = formatKm(km);
+        document.getElementById('duration-result').textContent = formatMin(durationMin);
+        document.getElementById('price-berline').textContent = priceBerline.toFixed(2).replace('.', ',') + ' €';
+        document.getElementById('price-van').textContent = priceVan.toFixed(2).replace('.', ',') + ' €';
+
+        const resultSection = document.getElementById('result-section');
+        resultSection.classList.remove('hidden');
+        resultSection.scrollIntoView({ behavior: 'smooth' });
+      } catch (err) {
+        errorEl.textContent = err.message.includes('introuvable')
+          ? err.message
+          : 'Impossible de calculer le trajet pour le moment. Réessayez ou vérifiez les adresses.';
+        errorEl.classList.remove('hidden');
+      } finally {
+        btn.disabled = false;
+        btn.textContent = prevLabel;
+      }
+    });
+  </script>
+</body>
+</html>

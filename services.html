@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Taxi VTC Vienne - Services</title>
+
+  <!-- Polices -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind (avec config polices) -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Montserrat', 'sans-serif'],
+            poppins: ['Poppins', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- AOS + Feather -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" crossorigin="anonymous">
+  <script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body class="font-sans text-white bg-black">
+
+ <!-- Navigation -->
+<nav class="bg-black text-white shadow-lg sticky top-0 z-50">
+  <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+    <!-- Logo -->
+    <a href="index.html" class="flex items-center space-x-2">
+      <i data-feather="car" class="text-purple-400"></i>
+      <span class="text-xl font-bold font-poppins">Taxi VTC Vienne</span>
+    </a>
+    <!-- Desktop menu -->
+    <ul id="nav-links" class="hidden md:flex md:items-center md:space-x-8 font-semibold">
+      <li><a href="index.html" class="hover:text-purple-400">Accueil</a></li>
+      <li><a href="services.html" class="text-purple-400">Services</a></li>
+      <li><a href="estimation.html" class="hover:text-purple-400">Estimation</a></li>
+      <li><a href="aeroports.html" class="hover:text-purple-400">Aéroports</a></li>
+      <li><a href="contact.html" class="hover:text-purple-400">Contact</a></li>
+    </ul>
+    <!-- Mobile menu button -->
+    <div class="md:hidden">
+      <button id="menu-toggle" class="text-white focus:outline-none">
+        <i data-feather="menu"></i>
+      </button>
+    </div>
+  </div>
+  <!-- Mobile dropdown -->
+  <div id="mobile-menu" class="hidden md:hidden bg-black pb-4 px-4">
+    <a href="index.html" class="block py-2 hover:text-purple-400">Accueil</a>
+    <a href="services.html" class="block py-2 hover:text-purple-400">Services</a>
+    <a href="estimation.html" class="block py-2 hover:text-purple-400">Estimation</a>
+    <a href="aeroports.html" class="block py-2 hover:text-purple-400">Aéroports</a>
+    <a href="contact.html" class="block py-2 hover:text-purple-400">Contact</a>
+  </div>
+</nav>
+
+
+ <!-- Hero -->
+  <section class="bg-gradient-to-b from-purple-800 to-black text-center min-h-[70vh] flex items-center justify-center">
+    <div class="container mx-auto px-4">
+      <h1 class="text-4xl md:text-6xl font-poppins font-bold mb-6" data-aos="fade-up">
+        Nos Services Premium
+      </h1>
+      <p class="text-lg md:text-2xl max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+        Des solutions de transport adaptées à tous vos besoins autour de Vienne, Givors, Chasse-sur-Rhône et les villes voisines.
+      </p>
+    </div>
+  </section>
+
+  <!-- Transferts Aéroports -->
+  <section id="transferts" class="py-16 bg-gradient-to-b from-black to-gray-900">
+    <div class="container mx-auto px-4">
+      <div class="md:flex md:items-center md:space-x-10">
+        <div class="md:w-1/2 mb-10 md:mb-0" data-aos="fade-right">
+          <h2 class="text-3xl font-poppins font-bold mb-6">Transferts Aéroports</h2>
+          <p class="text-gray-300 mb-6">
+            Transferts vers <span class="font-semibold">Lyon Saint-Exupéry, Grenoble, Genève</span> et autres aéroports régionaux. Suivi de vol, accueil avec pancarte, et assistance bagages.
+          </p>
+          <ul class="space-y-3">
+            <li class="flex items-start">
+              <span data-feather="map-pin" class="mr-3 text-purple-400"></span>
+              <span>Prise en charge à Vienne, Givors, Chasse-sur-Rhône, Saint-Romain-en-Gal, etc.</span>
+            </li>
+            <li class="flex items-start">
+              <span data-feather="clock" class="mr-3 text-purple-400"></span>
+              <span>Suivi en temps réel & attente incluse en cas de retard d’avion</span>
+            </li>
+            <li class="flex items-start">
+              <span data-feather="briefcase" class="mr-3 text-purple-400"></span>
+              <span>Aide aux bagages & transfert porte-à-porte</span>
+            </li>
+          </ul>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href="estimation.html" class="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 rounded-full">Estimer mon transfert</a>
+            <a href="tel:0652306995" class="border border-white text-white font-semibold py-3 px-6 rounded-full hover:bg-white hover:text-black">Appeler le chauffeur</a>
+          </div>
+        </div>
+        <div class="md:w-1/2" data-aos="fade-left">
+          <div class="bg-gray-800/50 rounded-xl p-6">
+          <img src="image/avion.jpg" alt="Avion décollant - Transferts aéroports" class="w-full max-h-[350px] object-cover rounded-lg shadow mx-auto" />
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Déplacements Professionnels -->
+  <section id="pro" class="py-16 bg-gradient-to-b from-gray-900 to-black">
+    <div class="container mx-auto px-4">
+      <div class="md:flex md:flex-row-reverse md:items-center md:space-x-reverse md:space-x-10">
+        <div class="md:w-1/2 mb-10 md:mb-0" data-aos="fade-left">
+          <h2 class="text-3xl font-poppins font-bold mb-6">Déplacements Professionnels</h2>
+          <p class="text-gray-300 mb-6">
+            Pour vos rendez-vous d’affaires, visites de sites, séminaires ou tournées, profitez d’un chauffeur discret, ponctuel et expérimenté.
+          </p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="bg-gray-800/50 rounded-lg p-5">
+              <div class="flex items-center mb-2">
+                <span data-feather="shield" class="mr-2 text-purple-400"></span>
+                <p class="font-semibold">Confidentialité</p>
+              </div>
+              <p class="text-gray-300 text-sm">Discrétion assurée et itinéraires optimisés.</p>
+            </div>
+            <div class="bg-gray-800/50 rounded-lg p-5">
+              <div class="flex items-center mb-2">
+                <span data-feather="target" class="mr-2 text-purple-400"></span>
+                <p class="font-semibold">Ponctualité</p>
+              </div>
+              <p class="text-gray-300 text-sm">Horaires respectés et suivi trafic.</p>
+            </div>
+            <div class="bg-gray-800/50 rounded-lg p-5">
+              <div class="flex items-center mb-2">
+                <span data-feather="smile" class="mr-2 text-purple-400"></span>
+                <p class="font-semibold">Confort</p>
+              </div>
+              <p class="text-gray-300 text-sm">Berline ou van selon vos besoins.</p>
+            </div>
+            <div class="bg-gray-800/50 rounded-lg p-5">
+              <div class="flex items-center mb-2">
+                <span data-feather="calendar" class="mr-2 text-purple-400"></span>
+                <p class="font-semibold">Mises à disposition</p>
+              </div>
+              <p class="text-gray-300 text-sm">À l’heure, demi-journée ou journée.</p>
+            </div>
+          </div>
+          <a href="contact.html" class="inline-block mt-8 bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 rounded-full">Obtenir un devis</a>
+        </div>
+        <div class="md:w-1/2" data-aos="fade-right">
+          <div class="bg-gray-800/50 rounded-xl p-6">
+            <img src="image/voiture.jpg" alt="Berline noire - Déplacements professionnels" class="w-full rounded-lg shadow" />
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Événements Spéciaux -->
+  <section id="evenements" class="py-16 bg-gradient-to-b from-black to-purple-900">
+    <div class="container mx-auto px-4">
+      <div class="md:flex md:items-center md:space-x-10">
+        <div class="md:w-1/2 mb-10 md:mb-0" data-aos="fade-right">
+          <h2 class="text-3xl font-poppins font-bold mb-6">Événements Spéciaux</h2>
+          <p class="text-gray-300 mb-6">
+            Mariages, galas, soirées privées, concerts, salons… Un service haut de gamme, coordonné et élégant pour vos moments importants.
+          </p>
+          <ul class="space-y-3">
+            <li class="flex items-start"><span data-feather="check-circle" class="mr-3 text-purple-400"></span>Coordination horaires & itinéraires</li>
+            <li class="flex items-start"><span data-feather="users" class="mr-3 text-purple-400"></span>Flotte mixte : berline & van</li>
+            <li class="flex items-start"><span data-feather="camera" class="mr-3 text-purple-400"></span>Véhicules présentables pour photos</li>
+          </ul>
+          <a href="contact.html" class="inline-block mt-8 bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 rounded-full">Organiser mon événement</a>
+        </div>
+        <div class="md:w-1/2" data-aos="fade-left">
+          <div class="bg-gray-800/50 rounded-xl p-6">
+           <img src="image/salle.jpg" alt="Salle de réception - Événements spéciaux" class="w-full max-h-[350px] object-cover rounded-lg shadow mx-auto" />
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Autres Services -->
+  <section id="autres-services" class="py-16 bg-gradient-to-b from-purple-900 to-black">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-poppins font-bold text-center mb-12" data-aos="fade-up">Autres services</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-gray-800/50 rounded-lg p-6" data-aos="fade-up">
+          <div class="flex items-center mb-2">
+            <span data-feather="map" class="mr-2 text-purple-400"></span>
+            <p class="font-semibold">Mise à disposition</p>
+          </div>
+          <p class="text-gray-300 text-sm">Chauffeur à l’heure / demi-journée / journée pour vos besoins variés.</p>
+        </div>
+        <div class="bg-gray-800/50 rounded-lg p-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="flex items-center mb-2">
+            <span data-feather="package" class="mr-2 text-purple-400"></span>
+            <p class="font-semibold">Courses & colis express</p>
+          </div>
+          <p class="text-gray-300 text-sm">Livraison urgente et sécurisée de documents et colis.</p>
+        </div>
+        <div class="bg-gray-800/50 rounded-lg p-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="flex items-center mb-2">
+            <span data-feather="user" class="mr-2 text-purple-400"></span>
+            <p class="font-semibold">Sièges enfant</p>
+          </div>
+          <p class="text-gray-300 text-sm">Sur demande, sièges adaptés pour voyager en famille.</p>
+        </div>
+        <div class="bg-gray-800/50 rounded-lg p-6" data-aos="fade-up" data-aos-delay="300">
+          <div class="flex items-center mb-2">
+            <span data-feather="compass" class="mr-2 text-purple-400"></span>
+            <p class="font-semibold">Tourisme & circuits</p>
+          </div>
+          <p class="text-gray-300 text-sm">Découverte des vignobles, sites historiques et panoramas.</p>
+        </div>
+        <div class="bg-gray-800/50 rounded-lg p-6" data-aos="fade-up" data-aos-delay="400">
+          <div class="flex items-center mb-2">
+            <span data-feather="credit-card" class="mr-2 text-purple-400"></span>
+            <p class="font-semibold">Paiement flexible</p>
+          </div>
+          <p class="text-gray-300 text-sm">CB, espèces, virement (entreprises) — reçu/facture à la demande.</p>
+        </div>
+        <div class="bg-gray-800/50 rounded-lg p-6" data-aos="fade-up" data-aos-delay="500">
+          <div class="flex items-center mb-2">
+            <span data-feather="sun" class="mr-2 text-purple-400"></span>
+            <p class="font-semibold">Disponibilité 24/7</p>
+          </div>
+          <p class="text-gray-300 text-sm">Service continu, de jour comme de nuit, weekends et jours fériés.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="py-16 bg-gradient-to-b from-purple-800 to-black text-center">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-poppins font-bold mb-6" data-aos="fade-up">Besoin d’un chauffeur&nbsp;?</h2>
+      <p class="text-lg mb-8" data-aos="fade-up" data-aos-delay="100">
+        Estimez votre trajet en ligne ou contactez-nous dès maintenant.
+      </p>
+      <div data-aos="fade-up" data-aos-delay="200">
+        <a href="estimation.html" class="bg-black hover:bg-gray-800 text-white font-semibold py-3 px-6 rounded-full mr-0 md:mr-4 mb-4 md:mb-0 inline-block">Estimer mon trajet</a>
+        <a href="tel:0652306995" class="bg-black hover:bg-gray-800 text-white font-semibold py-3 px-6 rounded-full inline-block">Nous contacter</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contact" class="bg-black py-12 text-gray-400">
+    <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div>
+        <h3 class="text-white font-poppins font-bold mb-4">Contact</h3>
+        <p class="flex items-center mb-2"><i data-feather="phone" class="mr-2"></i> 06 52 30 69 95</p>
+        <p class="flex items-center mb-2"><i data-feather="mail" class="mr-2"></i> contact@vtcvienne.com</p>
+        <p class="flex items-center"><i data-feather="map-pin" class="mr-2"></i> Vienne, France</p>
+      </div>
+      <div>
+        <h3 class="text-white font-poppins font-bold mb-4">Liens rapides</h3>
+        <ul>
+          <li class="mb-2"><a href="index.html">Accueil</a></li>
+          <li class="mb-2"><a href="services.html">Services</a></li>
+          <li class="mb-2"><a href="estimation.html">Estimation</a></li>
+          <li class="mb-2"><a href="aeroports.html">Aéroports</a></li>
+          <li class="mb-2"><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-white font-poppins font-bold mb-4">Zones desservies</h3>
+        <p>Vienne &amp; communes voisines, Lyon et agglomération, Grenoble, Valence, Genève,<br/>et toute la région Auvergne-Rhône-Alpes.</p>
+      </div>
+      <div>
+        <h3 class="text-white font-poppins font-bold mb-4">Réservez avec WhatsApp</h3>
+        <p class="flex space-x-4">
+          <a href="https://wa.me/33652306995" target="_blank" class="flex items-center space-x-2 hover:text-green-400">
+            <i data-feather="message-circle"></i>
+            <span>WhatsApp</span>
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="text-center text-gray-500 mt-8 text-sm">
+      &copy; 2025 Taxi VTC Vienne. Tous droits réservés.
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" crossorigin="anonymous"></script>
+  <script>
+    AOS.init();
+    feather.replace();
+    const navToggle = document.getElementById('nav-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    navToggle?.addEventListener('click', () => {
+      if (navMenu.classList.contains('hidden')) {
+        navMenu.classList.remove('hidden');
+        navToggle.querySelector('span').dataset.feather = 'x';
+      } else {
+        navMenu.classList.add('hidden');
+        navToggle.querySelector('span').dataset.feather = 'menu';
+      }
+      feather.replace();
+    });
+  </script>
+</body>
+</html>
