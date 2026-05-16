@@ -297,23 +297,19 @@
     </div>
   </footer>
 
-  <!-- Scripts -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" crossorigin="anonymous"></script>
   <script>
-    AOS.init();
+  AOS.init();
+  feather.replace();
+
+  const navToggle = document.getElementById('menu-toggle');
+  const navMenu = document.getElementById('mobile-menu');
+
+  navToggle?.addEventListener('click', () => {
+    navMenu.classList.toggle('hidden');
+
+    const icon = navToggle.querySelector('i');
+    icon.dataset.feather = navMenu.classList.contains('hidden') ? 'menu' : 'x';
+
     feather.replace();
-    const navToggle = document.getElementById('nav-toggle');
-    const navMenu = document.getElementById('nav-menu');
-    navToggle?.addEventListener('click', () => {
-      if (navMenu.classList.contains('hidden')) {
-        navMenu.classList.remove('hidden');
-        navToggle.querySelector('span').dataset.feather = 'x';
-      } else {
-        navMenu.classList.add('hidden');
-        navToggle.querySelector('span').dataset.feather = 'menu';
-      }
-      feather.replace();
-    });
-  </script>
-</body>
-</html>
+  });
+</script>
