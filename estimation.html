@@ -230,15 +230,57 @@
     const PER_KM_BERLINE = 1.5;    // €/km
     const PER_KM_VAN = 2.0;        // €/km
 
-    async function geocode(query) {
-      const url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}&limit=1&addressdetails=1`;
-      const res = await fetch(url, { headers: { 'Accept': 'application/json' }});
-      if (!res.ok) throw new Error('Geocoding failed');
-      const data = await res.json();
-      if (!data || !data.length) return null;
-      const { lat, lon, display_name } = data[0];
-      return { lat: parseFloat(lat), lon: parseFloat(lon), label: display_name };
+   async function geocode(query) {
+
+  // Ajouter automatiquement "France"
+  let searchQuery = query.trim();
+
+  // Corrections intelligentes
+  const aliases = {
+    "lyon aeroport": "Aéroport Lyon-Saint-Exupéry France",
+    "saint exupery": "Aéroport Lyon-Saint-Exupéry France",
+    "grenoble aeroport": "Aéroport Grenoble Alpes Isère France",
+    "geneve aeroport": "Aéroport de Genève Suisse",
+    "vienne": "Vienne 38200 France",
+    "givors": "Givors France",
+    "chasse sur rhone": "Chasse-sur-Rhône France"
+  };
+
+  const lower = searchQuery.toLowerCase();
+
+  if (aliases[lower]) {
+    searchQuery = aliases[lower];
+  } else {
+    searchQuery += " France";
+  }
+
+  // Recherche OpenStreetMap améliorée
+  const url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(searchQuery)}&limit=1&countrycodes=fr&addressdetails=1`;
+
+  const res = await fetch(url, {
+    headers: {
+      'Accept': 'application/json'
     }
+  });
+
+  if (!res.ok) {
+    throw new Error('Erreur serveur OpenStreetMap');
+  }
+
+  const data = await res.json();
+
+  if (!data || !data.length) {
+    return null;
+  }
+
+  const { lat, lon, display_name } = data[0];
+
+  return {
+    lat: parseFloat(lat),
+    lon: parseFloat(lon),
+    label: display_name
+  };
+}
 
     function haversineKm(a, b) {
       const R = 6371;
